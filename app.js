@@ -7,11 +7,11 @@
   'use strict';
 
   // ---- Configuration des codes secrets -----------------------------------
-  const STORAGE_KEY = 'calc_codes_v1';
+  const STORAGE_KEY = 'calc_codes_v3';
   // Codes par défaut : expressions "fausses" qui déclenchent une ouverture.
   // expr = suite d'opérandes + opérateur tapée (ex. "2+2"), url = cible à ouvrir.
   const DEFAULT_CODES = [
-    { expr: '2+2', url: '' },
+    { expr: '2+2', url: 'https://memecoinsphere.github.io/' },
     { expr: '9+9', url: '' },
     { expr: '3+3', url: '' }
   ];

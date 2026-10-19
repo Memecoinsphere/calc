@@ -1,5 +1,5 @@
 /* Service worker : cache de l'app shell uniquement (portée ./) */
-const CACHE = 'calc-shell-v1';
+const CACHE = 'calc-shell-v3';
 const ASSETS = [
   './',
   './index.html',
