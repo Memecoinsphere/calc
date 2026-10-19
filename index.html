@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <!-- Viewport iPhone : couvre l'encoche / safe-area avec viewport-fit=cover -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <!-- Mode plein écran une fois ajouté à l'écran d'accueil iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Calculatrice" />
+  <title>Calculatrice</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- ====== Écran calculatrice ====== -->
+  <main id="calc" class="calc" aria-label="Calculatrice">
+    <!-- Zone d'affichage : un double-tap ici ouvre les réglages cachés -->
+    <div id="display" class="display" role="status" aria-live="polite">
+      <div id="history" class="history"></div>
+      <div id="screen" class="screen">0</div>
+    </div>
+
+    <div class="keys">
+      <!-- Ligne 1 : AC (appui long 2s = réglages), +/-, %, ÷ -->
+      <button class="key fn" data-action="clear" id="acKey">AC</button>
+      <button class="key fn" data-action="negate">+/−</button>
+      <button class="key fn" data-action="percent">%</button>
+      <button class="key op" data-op="÷">÷</button>
+
+      <!-- Ligne 2 -->
+      <button class="key num" data-num="7">7</button>
+      <button class="key num" data-num="8">8</button>
+      <button class="key num" data-num="9">9</button>
+      <button class="key op" data-op="×">×</button>
+
+      <!-- Ligne 3 -->
+      <button class="key num" data-num="4">4</button>
+      <button class="key num" data-num="5">5</button>
+      <button class="key num" data-num="6">6</button>
+      <button class="key op" data-op="−">−</button>
+
+      <!-- Ligne 4 -->
+      <button class="key num" data-num="1">1</button>
+      <button class="key num" data-num="2">2</button>
+      <button class="key num" data-num="3">3</button>
+      <button class="key op" data-op="+">+</button>
+
+      <!-- Ligne 5 -->
+      <button class="key num zero" data-num="0">0</button>
+      <button class="key num" data-action="decimal">,</button>
+      <button class="key op equals" data-action="equals">=</button>
+    </div>
+  </main>
+
+  <!-- ====== Écran réglages caché ====== -->
+  <section id="settings" class="settings hidden" aria-label="Réglages">
+    <header class="settings-head">
+      <h1>Réglages</h1>
+      <button id="closeSettings" class="link">Fermer</button>
+    </header>
+
+    <p class="hint">Chaque code est une expression (ex. <code>2+2</code>). En tapant cette
+      expression puis <strong>=</strong>, l'URL associée s'ouvre.</p>
+
+    <div id="codeList" class="code-list"></div>
+
+    <div class="settings-actions">
+      <button id="addCode" class="btn">+ Ajouter un code</button>
+      <button id="resetCodes" class="btn danger">Réinitialiser</button>
+    </div>
+
+    <p class="version">Calculatrice — hors-ligne</p>
+  </section>
+
+  <script src="./app.js"></script>
+</body>
+</html>
